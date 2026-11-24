@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="game-card">
+        <span class="badge">Number Challenge</span>
+        <h1 class="heading">🎯 Number Guessing Game</h1>
+        <p class="para" id="range-text">Guess the secret number between 1 and 100</p>
+
+        <div class="difficulty-group" role="group" aria-label="Difficulty">
+            <button type="button" class="diff-btn" data-max="50">Easy (1–50)</button>
+            <button type="button" class="diff-btn active" data-max="100">Medium (1–100)</button>
+            <button type="button" class="diff-btn" data-max="500">Hard (1–500)</button>
+        </div>
+
+        <div class="stats" aria-label="Game statistics">
+            <div class="stat-item">
+                <span class="stat-label">Attempts</span>
+                <span class="stat-value" id="attempts">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Active Range</span>
+                <span class="stat-value" id="bounds">1 – 100</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Best Score</span>
+                <span class="stat-value" id="best-score">—</span>
+            </div>
+        </div>
+
+        <form id="guess-form" class="input-group" novalidate>
+            <label for="number" class="sr-only">Enter your guess</label>
+            <input
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="Enter a number..."
+                id="number"
+                class="input-number"
+            />
+            <button type="submit" class="btn-submit">Submit Guess</button>
+        </form>
+
+        <p id="result" class="result" role="status" aria-live="polite"></p>
+
+        <section id="history-section" class="history-section" hidden>
+            <span class="history-label">Previous guesses</span>
+            <ul id="guess-history" class="guess-history"></ul>
+        </section>
+
+        <button type="button" id="reset-btn" class="btn-reset">↻ New Game</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
